@@ -62,36 +62,42 @@ background-position:center;
 
 <body>
 
-<!-- NAVBAR -->
+<!-- ================= NAVBAR ================= -->
 
 <nav class="fixed top-0 left-0 w-full bg-slate-900/90 backdrop-blur-lg border-b border-slate-700 z-50">
 
-<div class="max-w-7xl mx-auto px-8 py-4 flex justify-between items-center">
+<div class="max-w-7xl mx-auto px-4 py-3">
 
+<div class="flex items-center justify-between">
+
+<!-- Logo -->
 <a href="index.html" class="flex items-center gap-3">
 
-<img src="images/logo.png"
-class="w-12 h-12 rounded-full">
+<img src="images/logo.png" class="w-12 h-12 rounded-full object-cover">
 
 <div>
-
-<h2 class="text-2xl font-bold text-blue-400">
-ANTRA
-</h2>
-
-<p class="text-green-400 text-sm">
-Health Care Pvt. Ltd.
-</p>
-
+<h2 class="text-2xl font-bold text-blue-400">ANTRA</h2>
+<p class="text-green-400 text-sm">Health Care Pvt. Ltd.</p>
 </div>
 
 </a>
 
-<ul class="hidden lg:flex gap-8">
+<!-- Call Button -->
+<a href="tel:+918188881844"
+class="bg-green-500 hover:bg-green-600 px-5 py-2 rounded-full font-semibold whitespace-nowrap">
+
+📞 Call Now
+
+</a>
+
+</div>
+
+<!-- Navigation -->
+<ul class="flex flex-wrap justify-center gap-6 mt-4 text-base font-medium">
 
 <li><a href="index.html" class="hover:text-green-400">Home</a></li>
 
-<li><a href="services.html" class="text-green-400">Services</a></li>
+<li><a href="services.html" class="hover:text-green-400">Services</a></li>
 
 <li><a href="about.html" class="hover:text-green-400">About</a></li>
 
@@ -101,17 +107,10 @@ Health Care Pvt. Ltd.
 
 </ul>
 
-<a href="tel:+918188881844"
-class="bg-green-500 px-6 py-3 rounded-full font-semibold">
-
-📞 Call Now
-
-</a>
-
 </div>
 
 </nav>
-
+  
 <!-- HERO -->
 
 <section class="hero min-h-[60vh] flex items-center justify-center">
