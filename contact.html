@@ -250,62 +250,63 @@ Lucknow
 </h2>
 
 
-<form action="https://formsubmit.co/me.hcr8953@gmail.com.com" method="POST">
-<input type="hidden" name="_subject" value="New ANTRA Healthcare Booking">
+<<form id="bookingForm">
 
-<input type="hidden" name="_captcha" value="false">
+    <input type="hidden" name="_captcha" value="false">
+    <input type="hidden" name="_template" value="table">
 
-<input type="hidden" name="_template" value="table">
+    <input
+        name="Customer Name"
+        placeholder="Full Name"
+        required
+        class="w-full p-4 rounded-xl mb-5 text-black">
 
-<input 
-name="Customer Name"
-placeholder="Full Name"
-class="w-full p-4 rounded-xl mb-5 text-black">
+    <input
+        name="Phone Number"
+        type="tel"
+        placeholder="Phone Number"
+        required
+        class="w-full p-4 rounded-xl mb-5 text-black">
 
-<input 
-name="Phone Number"
-type="tel"
-placeholder="Phone Number"
-class="w-full p-4 rounded-xl mb-5 text-black">
+    <input
+        name="Email"
+        type="email"
+        placeholder="Email Address"
+        required
+        class="w-full p-4 rounded-xl mb-5 text-black">
 
-<input 
-name="Email"
-type="email"
-placeholder="Email Address"
-class="w-full p-4 rounded-xl mb-5 text-black">
+    <select name="Service" required class="w-full p-4 rounded-xl mb-5 text-black">
+        <option value="">Select Service</option>
+        <option>Home Nursing Care</option>
+        <option>Caretaker Service</option>
+        <option>Critical Care</option>
+        <option>Physiotherapy</option>
+        <option>Mother & Baby Care</option>
+        <option>Medical Equipment</option>
+        <option>Home Sample Collection</option>
+    </select>
 
-<select class="w-full p-4 rounded-xl mb-5 text-black">
+    <textarea
+        name="Address"
+        placeholder="Patient Address"
+        required
+        class="w-full p-4 rounded-xl mb-5 text-black"></textarea>
 
-<option>Select Service</option>
-<option>Home Nursing Care</option>
-<option>Caretaker Service</option>
-<option>Critical Care</option>
-<option>Physiotherapy</option>
-<option>Mother & Baby Care</option>
-<option>Medical Equipment</option>
-<option>Home Sample Collection</option>
-</select>
+    <textarea
+        name="Message"
+        placeholder="Additional Message"
+        class="w-full p-4 rounded-xl mb-5 text-black"></textarea>
 
+    <button
+        type="submit"
+        class="bg-green-500 hover:bg-green-600 px-8 py-4 rounded-full font-semibold">
+        Send
+    </button>
 
-<textarea
-name="Address"
-placeholder="Patient Address"
-class="w-full p-4 rounded-xl mb-5 text-black"></textarea>
+    <p id="appointment-success" class="hidden text-green-400 mt-5 font-semibold">
+        Appointment request prepared. Please tap Send in WhatsApp to confirm.
+    </p>
 
-
-<textarea
-name="Message"
-placeholder="Additional Message"
-class="w-full p-4 rounded-xl mb-5 text-black"></textarea>
-
-</select>
-<button
-type="submit"
-class="bg-green-500 hover:bg-green-600 px-8 py-4 rounded-full font-semibold">
-
-Book Appointment
-
-</button>
 </form>
 
 </div>
@@ -349,47 +350,37 @@ Professional Home Healthcare Services
 </p>
 
 </footer>
+    <script>
+document.getElementById("bookingForm").addEventListener("submit", function (event) {
+    event.preventDefault();
+
+    const form = event.target;
+
+    const name = form.querySelector('[name="Customer Name"]').value;
+    const phone = form.querySelector('[name="Phone Number"]').value;
+    const email = form.querySelector('[name="Email"]').value;
+    const service = form.querySelector('[name="Service"]').value;
+    const address = form.querySelector('[name="Address"]').value;
+    const additionalMessage = form.querySelector('[name="Message"]').value;
+
+    const whatsappMessage = `New ANTRA Healthcare Booking
+
+Name: ${name}
+Phone: ${phone}
+Email: ${email}
+Service: ${service}
+Address: ${address}
+Message: ${additionalMessage}`;
+
+    document.getElementById("appointment-success").classList.remove("hidden");
+
+    window.open(
+        "https://wa.me/918188881844?text=" + encodeURIComponent(whatsappMessage),
+        "_blank"
+    );
+});
+</script>
+
 
 </body>
 </html>
-<script>
-
-document.getElementById("bookingForm").addEventListener("submit", function(e){
-
-    e.preventDefault();
-
-    alert("Thank you! Your booking request has been submitted. Our ANTRA Health Care team will contact you shortly.");
-
-    this.reset();
-
-});
-
-</script>
-
-
-<script>
-
-function sendWhatsApp(){
-
-let name = document.querySelector('[name="Customer Name"]').value;
-let phone = document.querySelector('[name="Phone Number"]').value;
-let service = document.querySelector('[name="Service"]').value;
-let address = document.querySelector('[name="Address"]').value;
-
-
-let message =
-"New ANTRA Healthcare Booking%0A%0A"+
-"Name: "+name+"%0A"+
-"Phone: "+phone+"%0A"+
-"Service: "+service+"%0A"+
-"Address: "+address;
-
-
-window.open(
-"https://wa.me/918188881844?text="+message,
-"_blank"
-);
-
-}
-
-</script>
